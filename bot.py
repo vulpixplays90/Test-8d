@@ -295,4 +295,12 @@ def handle_audio(message):
 
 keep_alive()
 
-bot.infinity_polling()
+import time
+
+while True:
+    try:
+        print("Starting polling...")
+        bot.polling(none_stop=True, timeout=60)
+    except Exception as e:
+        print(f"Polling crashed: {e}")
+        time.sleep(5)
