@@ -13,18 +13,16 @@ bot = telebot.TeleBot(BOT_TOKEN)
 
 CHANNEL_ID = -1002433942287
 
-app = Flask('')
+from flask import Flask, jsonify
 
-@app.route('/')
-def home():
-    return "I am alive"
+app = Flask(__name__)
 
-def run_http_server():
-    app.run(host='0.0.0.0', port=8080)
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({"status": "ok"}), 200
 
-def keep_alive():
-    t = Thread(target=run_http_server)
-    t.start()
+# Add your other existing routes here
+
 
 
 
