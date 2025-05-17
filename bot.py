@@ -291,7 +291,7 @@ def handle_audio(message):
         if os.path.exists(output_path):
             os.remove(output_path)
 
-keep_alive()
+
 
 import time
 
